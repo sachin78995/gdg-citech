@@ -1,0 +1,117 @@
+.about {
+  position: relative;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Pillar Card */
+.pillar-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s ease;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.pillar-card:hover {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3), 
+              0 0 30px color-mix(in srgb, var(--pillar-color) 20%, transparent);
+}
+
+.pillar-card__glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--pillar-color) 6%, transparent),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.pillar-card:hover .pillar-card__glow {
+  opacity: 1;
+}
+
+.pillar-card__content {
+  position: relative;
+  z-index: 2;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pillar-card__icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 8px var(--pillar-color));
+}
+
+.pillar-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--pillar-color);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--pillar-color) 40%, transparent);
+}
+
+.pillar-card__summary {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.pillar-card__details {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  overflow: hidden;
+}
+
+.pillar-card__expand {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--pillar-color);
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.pillar-card:hover .pillar-card__expand {
+  opacity: 1;
+}
+
+.pillar-card__border {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  transition: border-color 0.5s ease;
+}
+
+.pillar-card:hover .pillar-card__border {
+  border-color: color-mix(in srgb, var(--pillar-color) 30%, transparent);
+}
+
+@media (max-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

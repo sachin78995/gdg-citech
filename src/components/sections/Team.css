@@ -1,0 +1,147 @@
+/* ── Team / Domains ── */
+.team {
+  position: relative;
+  overflow: hidden;
+}
+
+.team__domains {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 48px;
+  padding: 40px 0 20px;
+}
+
+/* ── Domain Icon ── */
+.domain-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.domain-icon__circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 50% 40%,
+    color-mix(in srgb, var(--domain-color) 12%, transparent),
+    rgba(10, 10, 28, 0.95) 70%
+  );
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.domain-icon__ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--domain-color) 30%, transparent);
+  transition: all 0.4s ease;
+}
+
+.domain-icon:hover .domain-icon__ring {
+  border-color: color-mix(in srgb, var(--domain-color) 60%, transparent);
+  box-shadow: 0 0 25px color-mix(in srgb, var(--domain-color) 25%, transparent),
+              inset 0 0 25px color-mix(in srgb, var(--domain-color) 8%, transparent);
+  transform: scale(1.05);
+}
+
+.domain-icon:hover .domain-icon__circle {
+  background: radial-gradient(
+    circle at 50% 40%,
+    color-mix(in srgb, var(--domain-color) 22%, transparent),
+    rgba(10, 10, 28, 0.9) 70%
+  );
+}
+
+.domain-icon__svg {
+  width: 48px;
+  height: 48px;
+  color: #ffffff;
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--domain-color) 40%, transparent));
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.domain-icon:hover .domain-icon__svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 16px color-mix(in srgb, var(--domain-color) 60%, transparent));
+}
+
+.domain-icon__glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--domain-color) 6%, transparent),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.domain-icon:hover .domain-icon__glow {
+  opacity: 1;
+}
+
+.domain-icon__name {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: color-mix(in srgb, var(--domain-color) 80%, white);
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.domain-icon:hover .domain-icon__name {
+  color: var(--domain-color);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--domain-color) 40%, transparent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .team__domains {
+    gap: 28px;
+    padding: 24px 0;
+  }
+
+  .domain-icon__circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .domain-icon__svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .domain-icon__name {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team__domains {
+    gap: 20px;
+  }
+
+  .domain-icon__circle {
+    width: 76px;
+    height: 76px;
+  }
+
+  .domain-icon__svg {
+    width: 30px;
+    height: 30px;
+  }
+}

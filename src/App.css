@@ -1,0 +1,86 @@
+/* ============================================
+   App Layout
+   ============================================ */
+
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Immersive Toggle Button */
+.immersive-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(66, 133, 244, 0.2);
+  color: var(--accent-blue);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.immersive-toggle:hover {
+  border-color: var(--accent-blue);
+  background: rgba(66, 133, 244, 0.1);
+  box-shadow: 0 4px 20px rgba(66, 133, 244, 0.2),
+              0 0 40px rgba(66, 133, 244, 0.05);
+  transform: translateY(-2px);
+}
+
+.immersive-toggle__icon {
+  font-size: 0.8rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.immersive-toggle__text {
+  /* Hidden on narrow viewports */
+}
+
+/* Immersive Loading Fallback */
+.immersive-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #050510;
+  color: var(--accent-blue);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .immersive-toggle {
+    top: 16px;
+    right: 16px;
+    padding: 8px 14px;
+  }
+  .immersive-toggle__text {
+    display: none;
+  }
+}
