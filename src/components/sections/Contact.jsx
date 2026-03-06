@@ -1,13 +1,22 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import SectionHeading from '../ui/SectionHeading';
 import './Contact.css';
 
 const CONTACT_CHANNELS = [
-  { icon: '📧', label: 'Email', value: 'gdg@citech.edu', color: '#4285f4' },
-  { icon: '📍', label: 'Location', value: 'CIT Campus, India', color: '#ea4335' },
-  { icon: '🕐', label: 'Response', value: 'Within 24 hours', color: '#34a853' },
+  { icon: '📧', label: 'Email', value: 'gdsc@cambridge.edu.in', color: '#4285f4' },
+  { icon: '📍', label: 'Location', value: 'Cambridge Institute of Technology, Bengaluru', color: '#ea4335' },
+  { icon: '🕐', label: 'Response', value: ' Active 24/7', color: '#34a853' },
 ];
+const Social_links = [
+{label:'WhatsApp',value:'https://whatsapp.com/channel/0029Vb6ObkrEawduwzGJ5Z2D'},
+{label:'Instagram',value:'https://www.instagram.com/gdg.cit?igsh=Y2szZG1hazE5OHlx'},
+{label:'LinkedIn',value:'https://www.linkedin.com/company/gdgcit'},
+{label:'GitHub',value:'#'},
+// {label:'Discord',value='https://discord.gg/gdsc-citech'},
+
+]; 
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -34,12 +43,31 @@ export default function Contact() {
       return;
     }
     setErrors({});
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setForm({ name: '', email: '', message: '' });
-      setCharCount(0);
-    }, 4000);
+    
+    // Call EmailJS
+    emailjs.send(
+      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID || import.meta.env.VITE_APP_EMAILJS_ID,
+      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        from_email: form.email,
+        message: form.message,
+      },
+      import.meta.env.VITE_APP_PUBLIC_KEY
+    )
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setForm({ name: '', email: '', message: '' });
+        setCharCount(0);
+      }, 4000);
+    })
+    .catch((error) => {
+      console.error('FAILED...', error);
+      // Optional: Add some error handling UI if needed
+    });
   };
 
   const handleChange = (field) => (e) => {
@@ -102,9 +130,9 @@ export default function Contact() {
             <div className="contact__socials">
               <span className="contact__socials-label">Find us on</span>
               <div className="contact__socials-row">
-                {['GitHub', 'LinkedIn', 'Twitter', 'Discord'].map((s) => (
-                  <span key={s} className="contact__social-chip">{s}</span>
-                ))}
+              {Social_links.map((s) => (
+                <span key={s.label} className="contact__social-chip" onClick={() => window.open(s.value, '_blank')}>{s.label}</span>
+              ))}
               </div>
             </div>
           </motion.div>
