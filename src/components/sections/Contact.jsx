@@ -19,6 +19,7 @@ const Social_links = [
 ]; 
 
 export default function Contact() {
+  const formRef = useRef();
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -35,7 +36,7 @@ export default function Contact() {
     return errs;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) {
@@ -44,30 +45,27 @@ export default function Contact() {
     }
     setErrors({});
     
-    // Call EmailJS
-    emailjs.send(
-      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID || import.meta.env.VITE_APP_EMAILJS_ID,
-      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-      {
-        from_name: form.name,
-        from_email: form.email,
-        message: form.message,
-      },
-      import.meta.env.VITE_APP_PUBLIC_KEY
-    )
-    .then((response) => {
-      console.log('SUCCESS!', response.status, response.text);
+    try {
+      // Send the form data using EmailJS
+      await emailjs.sendForm(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID || import.meta.env.VITE_APP_EMAILJS_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_APP_PUBLIC_KEY
+      );
+
       setSubmitted(true);
+      setForm({ name: '', email: '', message: '' });
+      setCharCount(0);
+      
+      // Reset status after a delay
       setTimeout(() => {
         setSubmitted(false);
-        setForm({ name: '', email: '', message: '' });
-        setCharCount(0);
       }, 4000);
-    })
-    .catch((error) => {
-      console.error('FAILED...', error);
-      // Optional: Add some error handling UI if needed
-    });
+    } catch (error) {
+      console.error('EMAILJS Error', error);
+      // Optional: Handle error UI state
+    }
   };
 
   const handleChange = (field) => (e) => {
@@ -185,6 +183,7 @@ export default function Contact() {
                 </motion.div>
               ) : (
                 <motion.form
+                  ref={formRef}
                   className="contact__form"
                   key="form"
                   onSubmit={handleSubmit}
@@ -205,6 +204,7 @@ export default function Contact() {
                         </label>
                         <input
                           type={field === 'email' ? 'email' : 'text'}
+                          name={field === 'name' ? 'name' : 'email'}
                           className="contact__input"
                           value={form[field]}
                           onChange={handleChange(field)}
@@ -235,6 +235,7 @@ export default function Contact() {
                       Message
                     </label>
                     <textarea
+                      name="message"
                       className="contact__input contact__textarea"
                       value={form.message}
                       onChange={handleChange('message')}
