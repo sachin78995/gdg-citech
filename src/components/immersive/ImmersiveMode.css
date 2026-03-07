@@ -200,5 +200,85 @@
     top: auto;
     bottom: 60px;
     transform: none;
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .immersive__header {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+
+  .immersive__brand-logo {
+    height: 28px;
+  }
+
+  .immersive__close {
+    padding: 8px 16px;
+    font-size: 0.6rem;
+  }
+
+  .immersive__footer {
+    gap: 6px;
+    padding: 8px;
+    font-size: 0.45rem;
+  }
+
+  .immersive__panel {
+    right: 6px;
+    left: 6px;
+    bottom: 50px;
+    padding: 20px 16px 16px;
+    border-radius: 16px;
+    max-height: 50vh;
+  }
+
+  .immersive__panel-icon {
+    font-size: 1.8rem;
+  }
+
+  .immersive__panel-title {
+    font-size: 1rem;
+  }
+
+  .immersive__panel-desc {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .immersive__panel-btn {
+    padding: 8px 16px;
+    font-size: 0.65rem;
+  }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .immersive__header {
+    flex-direction: row;
+    padding: 8px 16px;
+  }
+
+  .immersive__hint {
+    display: none;
+  }
+
+  .immersive__footer {
+    padding: 6px;
+    font-size: 0.45rem;
+  }
+
+  .immersive__panel {
+    right: 10px;
+    left: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: 260px;
+    max-height: 80vh;
+    overflow-y: auto;
   }
 }

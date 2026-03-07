@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState, useCallback, useMemo } from 'react';
+import React, { Suspense, useRef, useState, useCallback, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Float, Stars, useTexture, Trail, MeshDistortMaterial } from '@react-three/drei';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -191,12 +191,12 @@ function ShapeGeometry({ shape }) {
 }
 
 /* ── Floating nav shape in 3D ── */
-function NavShape({ angle, color, label, icon, shape, isSelected, onSelect }) {
+function NavShape({ angle, color, label, icon, shape, isSelected, onSelect, isMobile }) {
   const ref = useRef();
   const innerRef = useRef();
   const glowRef = useRef();
   const [hovered, setHovered] = useState(false);
-  const radius = 4.2;
+  const radius = isMobile ? 3.2 : 4.2;
 
   const x = Math.cos(angle) * radius;
   const z = Math.sin(angle) * radius;
@@ -253,13 +253,14 @@ function NavShape({ angle, color, label, icon, shape, isSelected, onSelect }) {
     ctx.shadowBlur = 0;
     ctx.font = '15px "Segoe UI", Arial, sans-serif';
     ctx.fillStyle = 'rgba(255,255,255,0.35)';
-    ctx.fillText('[ CLICK ]', 160, 72);
+    ctx.fillText(isMobile ? '[ TAP ]' : '[ CLICK ]', 160, 72);
 
     return new THREE.CanvasTexture(c);
   }, [label, color, isSelected]);
 
   const active = hovered || isSelected;
-  const s = active ? 1.35 : 1;
+  const mobileScale = isMobile ? 1.3 : 1;
+  const s = (active ? 1.35 : 1) * mobileScale;
 
   return (
     <group ref={ref} position={[x, 0, z]}>
@@ -417,8 +418,9 @@ function NebulaCloud({ position, color, size }) {
 }
 
 /* ── Scene ── */
-function Scene({ selectedId, onSelect }) {
+function Scene({ selectedId, onSelect, isMobile }) {
   const count = NAV_ITEMS.length;
+  const orbitRadius = isMobile ? 3.2 : 4.2;
 
   return (
     <>
@@ -434,19 +436,19 @@ function Scene({ selectedId, onSelect }) {
       <FloorGrid />
 
       {/* Deep-space stars */}
-      <Stars radius={100} depth={80} count={4000} factor={4} saturation={0.3} fade speed={0.3} />
+      <Stars radius={100} depth={80} count={isMobile ? 1500 : 4000} factor={4} saturation={0.3} fade speed={0.3} />
 
       {/* Nebula clouds for depth */}
       <NebulaCloud position={[15, 5, -20]} color="#4285f4" size={12} />
       <NebulaCloud position={[-18, 8, -15]} color="#a855f7" size={10} />
-      <NebulaCloud position={[0, -5, -25]} color="#ea4335" size={14} />
-      <NebulaCloud position={[10, 10, -30]} color="#34a853" size={8} />
+      {!isMobile && <NebulaCloud position={[0, -5, -25]} color="#ea4335" size={14} />}
+      {!isMobile && <NebulaCloud position={[10, 10, -30]} color="#34a853" size={8} />}
 
       {/* Floating micro particles */}
-      <FloatingParticles count={60} />
+      <FloatingParticles count={isMobile ? 20 : 60} />
 
       {/* Center energy rings */}
-      <EnergyRing radius={4.5} />
+      <EnergyRing radius={isMobile ? 3.5 : 4.5} />
 
       {/* Center logo */}
       <CenterLogo />
@@ -454,8 +456,8 @@ function Scene({ selectedId, onSelect }) {
       {/* Connection beams from center to each shape */}
       {NAV_ITEMS.map((item, i) => {
         const angle = (i / count) * Math.PI * 2 - Math.PI / 2;
-        const tx = Math.cos(angle) * 4.2;
-        const tz = Math.sin(angle) * 4.2;
+        const tx = Math.cos(angle) * orbitRadius;
+        const tz = Math.sin(angle) * orbitRadius;
         return (
           <ConnectionBeam
             key={`beam-${item.id}`}
@@ -480,6 +482,7 @@ function Scene({ selectedId, onSelect }) {
             shape={item.shape}
             isSelected={selectedId === item.id}
             onSelect={() => onSelect(item.id)}
+            isMobile={isMobile}
           />
         );
       })}
@@ -499,7 +502,14 @@ function Scene({ selectedId, onSelect }) {
 /* ── Main Component ── */
 export default function ImmersiveMode({ onClose }) {
   const [selectedId, setSelectedId] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const selectedItem = NAV_ITEMS.find((n) => n.id === selectedId);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleNavigate = (section) => {
     onClose();
@@ -520,7 +530,7 @@ export default function ImmersiveMode({ onClose }) {
       {/* Header */}
       <div className="immersive__header">
         <img src="/gdsc-logo.png" alt="GDG CITech" className="immersive__brand-logo" />
-        <p className="immersive__hint">Click a shape to explore • Drag to orbit</p>
+        <p className="immersive__hint">{isMobile ? 'Tap a shape to explore' : 'Click a shape to explore • Drag to orbit'}</p>
         <button className="immersive__close" onClick={onClose}>
           ✕ EXIT
         </button>
@@ -528,10 +538,10 @@ export default function ImmersiveMode({ onClose }) {
 
       {/* 3D Canvas */}
       <Canvas
-        camera={{ position: [0, 3.5, 9], fov: 48 }}
+        camera={{ position: isMobile ? [0, 4.5, 11] : [0, 3.5, 9], fov: isMobile ? 60 : 48 }}
         className="immersive__canvas"
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: false }}
+        dpr={isMobile ? [1, 1.5] : [1, 2]}
+        gl={{ antialias: !isMobile, alpha: false }}
         onCreated={({ gl }) => {
           gl.setClearColor('#030312');
           gl.toneMapping = THREE.ACESFilmicToneMapping;
@@ -539,7 +549,7 @@ export default function ImmersiveMode({ onClose }) {
         }}
       >
         <Suspense fallback={null}>
-          <Scene selectedId={selectedId} onSelect={setSelectedId} />
+          <Scene selectedId={selectedId} onSelect={setSelectedId} isMobile={isMobile} />
         </Suspense>
       </Canvas>
 
