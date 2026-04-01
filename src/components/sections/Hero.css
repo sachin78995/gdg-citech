@@ -272,9 +272,35 @@
 
   .hero__k8s-btn {
     top: 70px !important;
-    left: 24px !important;
-    right: auto !important;
-    padding: 8px 14px;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    padding: 4px 10px;
+    gap: 6px;
+    width: max-content;
+  }
+
+  .hero__k8s-btn:hover {
+    transform: translateY(-2px) !important;
+  }
+
+  .hero__k8s-btn-upcoming {
+    font-size: 0.5rem;
+    padding: 2px 4px;
+  }
+
+  .hero__k8s-btn-text {
+    font-size: 0.55rem;
+  }
+
+  .hero__k8s-btn-sub-text {
+    font-size: 0.48rem;
+    font-weight: 200;
+  }
+
+  .hero__k8s-btn-countdown {
+    font-size: 0.48rem;
   }
 }
 
