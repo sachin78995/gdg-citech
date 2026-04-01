@@ -141,8 +141,11 @@ export default function EventDetail({ event, onClose }) {
             <section className="event-detail__section">
               <h2 className="event-detail__section-title">
                 <span className="event-detail__section-num">{event.images && event.images.length > 0 ? '04' : '03'}</span>
-                {event.highlights && event.highlights.length > 0 ? 'Workshop Highlights' : 'Schedule'}
+                {event.sectionTitle || (event.highlights && event.highlights.length > 0 ? 'Workshop Highlights' : 'Schedule')}
               </h2>
+              {event.highlightsIntro && (
+                <p className="event-detail__text" style={{ marginBottom: '20px' }}>{event.highlightsIntro}</p>
+              )}
               {event.highlights && event.highlights.length > 0 ? (
                 <div className="event-detail__highlights-grid">
                   {event.highlights.map((item, i) => (
@@ -209,7 +212,11 @@ export default function EventDetail({ event, onClose }) {
                     transition={{ delay: 0.3 + i * 0.1 }}
                   >
                     <div className="event-detail__speaker-avatar">
-                      <span>{speaker.initials}</span>
+                      {speaker.image ? (
+                        <img src={speaker.image} alt={speaker.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                      ) : (
+                        <span>{speaker.initials}</span>
+                      )}
                     </div>
                     <div className="event-detail__speaker-info">
                       <h4>{speaker.name}</h4>
@@ -241,13 +248,40 @@ export default function EventDetail({ event, onClose }) {
             </div>
 
             {/* Register CTA */}
-            <motion.button
-              className="event-detail__register-btn"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              {event.status === 'upcoming' ? 'Register Now →' : 'View Resources →'}
-            </motion.button>
+            {event.registrationLink && (
+              <motion.button
+                className="event-detail__register-btn"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => window.open(event.registrationLink, '_blank')}
+                style={{ marginBottom: '16px' }}
+              >
+                Register Now →
+              </motion.button>
+            )}
+
+            {/* Stay Connected CTA */}
+            {event.stayConnected && (
+              <motion.button
+                className="event-detail__register-btn"
+                style={{ background: 'transparent', color: 'var(--text-primary)', border: '1px solid rgba(255,255,255,0.2)' }}
+                whileHover={{ scale: 1.03, borderColor: 'var(--accent-blue)', background: 'rgba(66, 133, 244, 0.08)' }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => window.open(event.stayConnected, '_blank')}
+              >
+                Stay Connected 🔗
+              </motion.button>
+            )}
+            
+            {!event.registrationLink && !event.stayConnected && (
+              <motion.button
+                className="event-detail__register-btn"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                {event.status === 'upcoming' ? 'Register Now →' : 'View Resources →'}
+              </motion.button>
+            )}
           </aside>
         </div>
       </div>

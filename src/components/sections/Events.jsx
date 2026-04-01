@@ -16,7 +16,7 @@ export const events = [
       'HackFusion 2026 is our flagship 36-hour hackathon where teams of four compete to build production-ready solutions to real-world problems. This year\'s themes include Sustainable Cities, Healthcare Innovation, and EdTech Revolution. Teams will have access to Google Cloud credits, Firebase, and mentorship from industry professionals. Top 3 teams win cash prizes, Google swag, and internship opportunities with our partner companies.',
     tagline: 'Build. Break. Innovate. 36 hours of pure creation.',
     icon: '⚡',
-    status: 'upcoming',
+    status: 'coming soon',
     color: '#ea4335',
     whatYouLearn: [
       { icon: '🧠', text: 'Problem-solving under pressure' },
@@ -64,7 +64,7 @@ export const events = [
       'Dive deep into Google Cloud Platform with hands-on labs and real-world projects. This full-day workshop starts from the basics — understanding cloud architecture, IAM, and compute services — and builds up to deploying serverless applications with Cloud Functions and Cloud Run. You\'ll work with BigQuery to analyze large datasets and build a complete data pipeline. Every participant gets free Google Cloud credits and a pathway to earn the Google Cloud Digital Leader certification.',
     tagline: 'Master the cloud. Build without limits.',
     icon: '☁️',
-    status: 'upcoming',
+     status: 'coming soon',
     color: '#4285f4',
     whatYouLearn: [
       { icon: '☁️', text: 'GCP Console & Cloud Shell basics' },
@@ -109,7 +109,7 @@ export const events = [
       'Flutter Forward is an intensive hands-on workshop that takes you from zero to hero in cross-platform development. Start with Dart fundamentals and Flutter\'s widget tree, then progressively build a complete social media app with real-time features. You\'ll master state management with Riverpod, build stunning custom animations using Flutter\'s animation framework, and deploy your app to both Android and iOS from a single codebase. By the end, you\'ll have a portfolio-ready app and the skills to build anything.',
     tagline: 'One codebase. Every platform. Infinite possibilities.',
     icon: '🦋',
-    status: 'upcoming',
+    status: 'coming soon',
     color: '#34a853',
     whatYouLearn: [
       { icon: '🎯', text: 'Dart language fundamentals' },
@@ -145,49 +145,47 @@ export const events = [
   },
   {
     id: 4,
-    title: 'AI/ML Bootcamp',
-    type: 'Bootcamp',
-    date: 'April 18-20, 2026',
-    time: '10:00 AM — 6:00 PM (3 Days)',
-    venue: 'CITech AI Lab, Research Block',
-    capacity: '60 Seats',
-    description: 'Intensive 3-day bootcamp on TensorFlow, Vertex AI, and building intelligent applications.',
-    fullDescription:
-      'An intensive 3-day bootcamp designed to transform you from ML-curious to ML-capable. Day 1 covers Python for data science, NumPy, Pandas, and visualization with Matplotlib. Day 2 dives into machine learning with scikit-learn and TensorFlow — you\'ll train CNNs for image classification and NLP models for sentiment analysis. Day 3 is all about production ML: using Vertex AI for model training and deployment, building prediction APIs, and understanding MLOps fundamentals. Each participant builds and deploys their own ML model by the end.',
-    tagline: 'Three days. Zero to ML Engineer.',
-    icon: '🤖',
+    title: 'Kubernetes Workshop by KubeAce',
+    type: 'Workshop',
+    date: '7th April 2026',
+    time: '1:00pm onwards',
+    venue: 'Auditorium, 5th floor , SMV Block',
+    capacity: 'Open to All',
+    description: 'Basics of Kubernetes, DevOps & Cloud, along with building and deploying an AI-based application.',
+    fullDescription: 'Mastering the Cloud: Kubernetes & AI Deployment Workshop\n\nHave you ever wondered what it takes to transition from building a local application to deploying a resilient, scalable system like a seasoned DevOps professional? The gap between "it works on my machine" and "it works at scale" is bridged by Kubernetes—the industry standard for container orchestration.\n\nWe are thrilled to host an intensive, hands-on Kubernetes Workshop led by Mr. Harish Rajendran. This session is designed to strip away the complexity of cloud-native technologies and provide you with a clear, actionable roadmap for modern software deployment.\n\n📌 Note:\n* Bringing your laptop is recommended for a better experience.\n* Attendance will be provided.',
+    tagline: 'Ever thought of building your own app and actually deploying it like a pro on Kubernetes? 👀',
+    icon: <img src="/Kubernettes/logo.webp" alt="Kubernetes Logo" style={{ width: '120px', height: '120px', objectFit: 'contain' }} />,
     status: 'upcoming',
-    color: '#fbbc04',
+    color: '#326ce5',
     whatYouLearn: [
-      { icon: '🐍', text: 'Python for Data Science' },
-      { icon: '🧮', text: 'NumPy, Pandas & Matplotlib' },
-      { icon: '🧠', text: 'Neural Networks & TensorFlow' },
-      { icon: '🖼️', text: 'CNNs for Image Classification' },
-      { icon: '💬', text: 'NLP & Sentiment Analysis' },
-      { icon: '🚀', text: 'Vertex AI Model Deployment' },
+      { icon: '🔄', text: "The DevOps Ecosystem: Understand the synergy between development and operations and why cloud-native architecture is a non-negotiable skill in today's job market." },
+      { icon: '📦', text: 'Core Kubernetes Concepts: From Pods and Services to Deployments and Scaling—get a firm grip on how K8s manages containerized workloads.' },
+      { icon: '🧠', text: 'AI Integration: Learn the nuances of building and containerizing an AI-based application, ensuring it is ready for the cloud.' },
+      { icon: '🚀', text: 'Deployment Workflows: Watch a live demonstration of a professional CI/CD pipeline, taking an app from source code to a live production environment.' },
     ],
     speakers: [
-      { name: 'Dr. Meera Iyer', initials: 'MI', role: 'AI Research Lead, Google' },
-      { name: 'Siddharth Nair', initials: 'SN', role: 'ML Engineer, DeepTech Labs' },
-      { name: 'Pooja Krishnan', initials: 'PK', role: 'Data Scientist, AnalytiQ' },
-      { name: 'Karthik Sundaram', initials: 'KS', role: 'MLOps Engineer, CloudAI' },
+      { 
+        name: 'Mr. Harish Rajendran', 
+        initials: 'HR', 
+        role: 'Co-Founder & CTO of KubeAce, certified Kubernetes administrator with 10 years of experience in Kubernetes, DevOps, and Cloud Architecture.',
+        image: '/Kubernettes/pic2.jpeg' 
+      },
     ],
-    agenda: [
-      { time: 'Day 1 AM', topic: 'Python Refresher & Jupyter Setup', speaker: 'Pooja Krishnan' },
-      { time: 'Day 1 PM', topic: 'NumPy, Pandas & Data Visualization', speaker: 'Pooja Krishnan' },
-      { time: 'Day 2 AM', topic: 'ML Fundamentals & scikit-learn', speaker: 'Siddharth Nair' },
-      { time: 'Day 2 PM', topic: 'Deep Learning with TensorFlow/Keras', speaker: 'Dr. Meera Iyer' },
-      { time: 'Day 3 AM', topic: 'CNNs, Transfer Learning & NLP', speaker: 'Dr. Meera Iyer' },
-      { time: 'Day 3 PM', topic: 'Vertex AI: Train, Deploy & Monitor', speaker: 'Karthik Sundaram' },
-      { time: 'Day 3 Eve', topic: 'Project Showcase & Certificates', speaker: 'All Speakers' },
+    registrationLink: 'https://docs.google.com/forms/d/1Z9udZWN-bUsippcDYkwKo1M8mw4THSQjiRfuaUy7xBM/edit',
+    stayConnected: 'https://linktr.ee/GDG_CITECH',
+    sectionTitle: 'Why You Should Join',
+    highlightsIntro: "In an era where efficiency and scalability define a product's success, understanding Kubernetes is a superpower. Whether you are an aspiring software engineer, a data scientist looking to deploy models, or a tech enthusiast, this workshop offers:",
+    highlights: [
+      { title: 'Industry-Relevant Insights', description: 'Move beyond tutorials with real-world strategies used by top-tier tech companies.' },
+      { title: 'Live Technical Demonstration', description: 'Witness a full deployment workflow in real-time, giving you a front-row seat to professional DevOps practices.' },
+      { title: 'Future-Ready Skills', description: 'Gain the confidence to architect and manage applications that can handle real-world traffic and complexity.' }
     ],
+    agenda: [],
     prerequisites: [
-      'Basic Python programming',
-      'Understanding of linear algebra (helpful)',
-      'Laptop with 8GB+ RAM',
-      'Google Colab account',
+      'Bringing your laptop is recommended for a better experience.',
+      'Basic programming knowledge (helpful)',
     ],
-    technologies: ['TensorFlow', 'Keras', 'Vertex AI', 'Python', 'scikit-learn', 'Google Colab', 'Pandas'],
+    technologies: ['Kubernetes', 'Docker', 'Cloud Architecture', 'DevOps', 'AI Deployment'],
   },
   {
     id: 5,
@@ -338,7 +336,7 @@ function EventCard({ event, index, onSelect }) {
         <div className="event-card__header">
           <span className="event-card__type">{event.type}</span>
           <span className={`event-card__status event-card__status--${event.status}`}>
-            {event.status === 'upcoming' ? '● Live Soon' : '● Completed'}
+            {event.status === 'upcoming' ? '● Live Soon' : event.status === 'coming soon' ? '● Coming Soon' : '● Completed'}
           </span>
         </div>
         <h3 className="event-card__title">{event.title}</h3>

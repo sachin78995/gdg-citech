@@ -84,7 +84,7 @@
 }
 
 .event-detail__status-badge--past {
-  color: var(--text-muted, rgba(255,255,255,0.4));
+  color: var(--text-muted, rgba(255, 255, 255, 0.4));
 }
 
 /* ── Scrollable Content ── */
@@ -134,37 +134,36 @@
   background-image:
     radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--ed-color) 15%, transparent) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, color-mix(in srgb, var(--ed-color) 10%, transparent) 0%, transparent 50%),
-    repeating-linear-gradient(
-      0deg,
+    repeating-linear-gradient(0deg,
       transparent,
       transparent 40px,
       color-mix(in srgb, var(--ed-color) 3%, transparent) 40px,
-      color-mix(in srgb, var(--ed-color) 3%, transparent) 41px
-    ),
-    repeating-linear-gradient(
-      90deg,
+      color-mix(in srgb, var(--ed-color) 3%, transparent) 41px),
+    repeating-linear-gradient(90deg,
       transparent,
       transparent 40px,
       color-mix(in srgb, var(--ed-color) 3%, transparent) 40px,
-      color-mix(in srgb, var(--ed-color) 3%, transparent) 41px
-    );
+      color-mix(in srgb, var(--ed-color) 3%, transparent) 41px);
   animation: bannerShift 20s linear infinite;
 }
 
 @keyframes bannerShift {
-  0% { background-position: 0 0, 0 0, 0 0, 0 0; }
-  100% { background-position: 0 0, 0 0, 0 40px, 40px 0; }
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 0 0, 0 0, 0 40px, 40px 0;
+  }
 }
 
 .event-detail__banner-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(6, 6, 14, 0.3) 0%,
-    rgba(6, 6, 14, 0.7) 70%,
-    rgba(6, 6, 14, 1) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(6, 6, 14, 0.3) 0%,
+      rgba(6, 6, 14, 0.7) 70%,
+      rgba(6, 6, 14, 1) 100%);
 }
 
 .event-detail__banner-content {
@@ -186,8 +185,15 @@
 }
 
 @keyframes iconFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .event-detail__title {
@@ -388,11 +394,9 @@
   top: 8px;
   bottom: 8px;
   width: 2px;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--ed-color) 40%, transparent),
-    color-mix(in srgb, var(--ed-color) 10%, transparent)
-  );
+  background: linear-gradient(180deg,
+      color-mix(in srgb, var(--ed-color) 40%, transparent),
+      color-mix(in srgb, var(--ed-color) 10%, transparent));
   border-radius: 2px;
 }
 
@@ -534,24 +538,22 @@
 }
 
 .event-detail__speaker-avatar {
-  width: 42px;
-  height: 42px;
+  width: 100px;
+  height: 140px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--ed-color) 25%, transparent),
-    color-mix(in srgb, var(--ed-color) 8%, transparent)
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--ed-color) 25%, transparent),
+      color-mix(in srgb, var(--ed-color) 8%, transparent));
   border: 1px solid color-mix(in srgb, var(--ed-color) 30%, transparent);
   flex-shrink: 0;
 }
 
 .event-detail__speaker-avatar span {
   font-family: var(--font-heading, 'Orbitron', sans-serif);
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 800;
   color: var(--ed-color);
 }
@@ -635,11 +637,9 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #fff;
-  background: linear-gradient(
-    135deg,
-    var(--ed-color),
-    color-mix(in srgb, var(--ed-color) 70%, #000)
-  );
+  background: linear-gradient(135deg,
+      var(--ed-color),
+      color-mix(in srgb, var(--ed-color) 70%, #000));
   cursor: pointer;
   box-shadow: 0 4px 20px color-mix(in srgb, var(--ed-color) 30%, transparent);
   transition: box-shadow 0.3s ease;

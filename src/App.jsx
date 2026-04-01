@@ -44,7 +44,7 @@ export default function App() {
 
       {/* Main Content */}
       <main className="main">
-        <Hero />
+        <Hero onEventSelect={setActiveEvent} />
         <About />
         <Events onEventSelect={setActiveEvent} />
         <Team onDomainSelect={setActiveDomain} />
