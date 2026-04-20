@@ -98,22 +98,15 @@ export default function Hero({ onEventSelect }) {
 
   return (
     <section id="hero" className="hero" ref={containerRef}>
-      {/* Kubernetes Workshop Button */}
-      <button 
-        className="hero__k8s-btn"
-        onClick={() => onEventSelect && onEventSelect(k8sWorkshopEvent)}
-        title="View Kubernetes Workshop Details"
-      >
-        <div className="hero__k8s-btn-sweep" />
-        <span className="hero__k8s-btn-upcoming">Upcoming</span>
+      
+
+      {/* Kairos Hackathon — Coming Soon Button */}
+      <button className="hero__kairos-btn" title="Kairos Hackathon — Coming Soon">
+        <div className="hero__kairos-btn-sweep" />
+        <span className="hero__kairos-btn-badge">Coming Soon</span>
         <div className="hero__k8s-btn-content">
-          <span className="hero__k8s-btn-text"> Hackathon</span>
-          <span className="hero__k8s-btn-sub-text">click here</span>
-          {timeLeft && (
-            <span className="hero__k8s-btn-countdown">
-              <span className="live-dot" /> Starts in: {timeLeft}
-            </span>
-          )}
+          <span className="hero__k8s-btn-text">Kairos</span>
+          <span className="hero__k8s-btn-sub-text">Hackathon</span>
         </div>
       </button>
 
