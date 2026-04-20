@@ -5,7 +5,7 @@ import './Events.css';
 export const events = [
   {
     id: 1,
-    title: 'HackFusion 2026',
+    title: 'Kairos 2026',
     type: 'Hackathon',
     date: 'March 15-16, 2026',
     time: '9:00 AM — 9:00 PM (36 hrs)',
@@ -155,7 +155,7 @@ export const events = [
     fullDescription: 'Mastering the Cloud: Kubernetes & AI Deployment Workshop\n\nHave you ever wondered what it takes to transition from building a local application to deploying a resilient, scalable system like a seasoned DevOps professional? The gap between "it works on my machine" and "it works at scale" is bridged by Kubernetes—the industry standard for container orchestration.\n\nWe are thrilled to host an intensive, hands-on Kubernetes Workshop led by Mr. Harish Rajendran. This session is designed to strip away the complexity of cloud-native technologies and provide you with a clear, actionable roadmap for modern software deployment.\n\n📌 Note:\n* Bringing your laptop is recommended for a better experience.\n* Attendance will be provided.',
     tagline: 'Ever thought of building your own app and actually deploying it like a pro on Kubernetes? 👀',
     icon: <img src="/Kubernettes/logo.webp" alt="Kubernetes Logo" style={{ width: '120px', height: '120px', objectFit: 'contain' }} />,
-    status: 'upcoming',
+    status: 'past',
     color: '#326ce5',
     whatYouLearn: [
       { icon: '🔄', text: "The DevOps Ecosystem: Understand the synergy between development and operations and why cloud-native architecture is a non-negotiable skill in today's job market." },
