@@ -107,7 +107,7 @@ export default function Hero({ onEventSelect }) {
         <div className="hero__k8s-btn-sweep" />
         <span className="hero__k8s-btn-upcoming">Upcoming</span>
         <div className="hero__k8s-btn-content">
-          <span className="hero__k8s-btn-text">K8s Workshop</span>
+          <span className="hero__k8s-btn-text"> Hackathon</span>
           <span className="hero__k8s-btn-sub-text">click here</span>
           {timeLeft && (
             <span className="hero__k8s-btn-countdown">
