@@ -5,7 +5,7 @@ import './Events.css';
 export const events = [
   {
     id: 1,
-    title: 'Kairos 2026',
+    title: 'ZYNEX 2026',
     type: 'Hackathon',
     date: 'March 15-16, 2026',
     time: '9:00 AM — 9:00 PM (36 hrs)',
@@ -13,7 +13,7 @@ export const events = [
     capacity: '200 Participants (50 Teams)',
     description: 'A 36-hour hackathon to build innovative solutions for real-world challenges using Google technologies.',
     fullDescription:
-      'HackFusion 2026 is our flagship 36-hour hackathon where teams of four compete to build production-ready solutions to real-world problems. This year\'s themes include Sustainable Cities, Healthcare Innovation, and EdTech Revolution. Teams will have access to Google Cloud credits, Firebase, and mentorship from industry professionals. Top 3 teams win cash prizes, Google swag, and internship opportunities with our partner companies.',
+      'ZYNEX 2026 is our flagship 36-hour hackathon where teams of four compete to build production-ready solutions to real-world problems. This year\'s themes include Sustainable Cities, Healthcare Innovation, and EdTech Revolution. Teams will have access to Google Cloud credits, Firebase, and mentorship from industry professionals. Top 3 teams win cash prizes, Google swag, and internship opportunities with our partner companies.',
     tagline: 'Build. Break. Innovate. 36 hours of pure creation.',
     icon: '⚡',
     status: 'coming soon',
