@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTimeGreeting, useMousePosition } from '../../hooks/useEffects';
+import { events } from './Events';
 import './Hero.css';
 
 const headlines = [
@@ -26,7 +27,24 @@ export default function Hero({ onEventSelect }) {
     return () => clearInterval(interval);
   }, []);
 
-  
+  useEffect(() => {
+    const targetDate = new Date('May 22, 2026 09:00:00').getTime();
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+      if (difference <= 0) {
+        setTimeLeft('Live Now');
+      } else {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        setTimeLeft(`${days}d ${hours}h ${minutes}m`);
+      }
+    };
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 60000);
+    return () => clearInterval(timer);
+  }, []);
 
   const parallaxX = (normalized.x - 0.5) * 20;
   const parallaxY = (normalized.y - 0.5) * 20;
@@ -36,9 +54,13 @@ export default function Hero({ onEventSelect }) {
       
 
       {/* Kairos Hackathon — Coming Soon Button */}
-      <button className="hero__kairos-btn" title="Kairos Hackathon — Coming Soon">
+      <button 
+        className="hero__kairos-btn" 
+        title="ZYNEX Hackathon — Coming Soon"
+        onClick={() => onEventSelect && onEventSelect(events.find(e => e.id === 1))}
+      >
         <div className="hero__kairos-btn-sweep" />
-        <span className="hero__kairos-btn-badge">Coming Soon</span>
+        <span className="hero__kairos-btn-badge">{timeLeft ? `Starts in ${timeLeft}` : 'Coming Soon'}</span>
         <div className="hero__k8s-btn-content">
           <span className="hero__k8s-btn-text">ZYNEX</span>
           <span className="hero__k8s-btn-sub-text">Hackathon</span>

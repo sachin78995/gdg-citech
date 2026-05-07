@@ -201,7 +201,7 @@ export default function EventDetail({ event, onClose }) {
           <aside className="event-detail__sidebar">
             {/* Speakers */}
             <div className="event-detail__sidebar-card">
-              <h3 className="event-detail__sidebar-title">Speakers & Leads</h3>
+              <h3 className="event-detail__sidebar-title"> Leads</h3>
               <div className="event-detail__speakers">
                 {event.speakers.map((speaker, i) => (
                   <motion.div
@@ -211,13 +211,13 @@ export default function EventDetail({ event, onClose }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 + i * 0.1 }}
                   >
-                    <div className="event-detail__speaker-avatar">
+                    {/* <div className="event-detail__speaker-avatar">
                       {speaker.image ? (
                         <img src={speaker.image} alt={speaker.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
                       ) : (
                         <span>{speaker.initials}</span>
                       )}
-                    </div>
+                    </div> */}
                     <div className="event-detail__speaker-info">
                       <h4>{speaker.name}</h4>
                       <p>{speaker.role}</p>
@@ -278,6 +278,7 @@ export default function EventDetail({ event, onClose }) {
                 className="event-detail__register-btn"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
+                onClick={() => window.open(event.resourceLink || 'https://docs.google.com/forms/d/e/1FAIpQLSenwPbBAl1uUqcDPmuOiUgRfgN-Mrr1qqAF78fO3pE7g54IZw/viewform?usp=dialog', '_blank')}
               >
                 {event.status === 'upcoming' ? 'Register Now →' : 'View Resources →'}
               </motion.button>

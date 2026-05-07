@@ -2,54 +2,57 @@ import { motion } from 'framer-motion';
 import SectionHeading from '../ui/SectionHeading';
 import './Events.css';
 
+import globeIcon from '../../assets/Zenyex/globeicon.jpg';
+import realWorldIcon from '../../assets/Zenyex/realworld.jpg';
+import opportunityIcon from '../../assets/Zenyex/Oppurtiunity.jpg';
+import collaborationIcon from '../../assets/Zenyex/Collaboration.jpg';
+import industryIcon from '../../assets/Zenyex/Industry.jpg';
+import handsOnIcon from '../../assets/Zenyex/Hands-on icon.jpg';
+
 export const events = [
   {
     id: 1,
     title: 'ZYNEX 2026',
     type: 'Hackathon',
-    date: 'March 15-16, 2026',
-    time: '9:00 AM — 9:00 PM (36 hrs)',
-    venue: 'CITech Innovation Hub, Block A',
-    capacity: '200 Participants (50 Teams)',
-    description: 'A 36-hour hackathon to build innovative solutions for real-world challenges using Google technologies.',
+    date: 'May 22-23, 2026',
+    time: '24–30 Hour Offline Finale',
+    venue: 'Cambridge Institute of Technology',
+    capacity: 'Top 25 shortlisted teams for the finale',
+    description: 'A flagship hackathon to solve real-world challenges through technology.',
     fullDescription:
-      'ZYNEX 2026 is our flagship 36-hour hackathon where teams of four compete to build production-ready solutions to real-world problems. This year\'s themes include Sustainable Cities, Healthcare Innovation, and EdTech Revolution. Teams will have access to Google Cloud credits, Firebase, and mentorship from industry professionals. Top 3 teams win cash prizes, Google swag, and internship opportunities with our partner companies.',
-    tagline: 'Build. Break. Innovate. 36 hours of pure creation.',
+      'ZYNEX 2026 is a flagship hackathon organized by the GDG on Campus - Cambridge Institute of Technology, created to bring together passionate student innovators from across India to solve real-world challenges through technology.\n\nFocused on both software and hardware innovation, the hackathon provides a platform for participants to transform ideas into practical solutions through collaboration, creativity, and rapid development.\n\nThe event follows a hybrid format beginning with an online ideation round and concluding with an offline grand finale at Cambridge Institute of Technology. Teams will move from idea validation to prototype building and finally to developing a working Minimum Viable Product (MVP).',
+    tagline: 'Velocity with Vision',
     icon: '⚡',
     status: 'coming soon',
     color: '#ea4335',
     whatYouLearn: [
-      { icon: '🧠', text: 'Problem-solving under pressure' },
-      { icon: '🔧', text: 'Rapid prototyping & MVP building' },
-      { icon: '☁️', text: 'Google Cloud & Firebase integration' },
-      { icon: '🎤', text: 'Pitching & presentation skills' },
-      { icon: '🤝', text: 'Cross-functional team collaboration' },
-      { icon: '🚀', text: 'Deploying production-ready apps' },
+      { icon: <img src={globeIcon} alt="Globe" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />, text: <strong>National-level exposure</strong> },
+      { icon: <img src={realWorldIcon} alt="Brain" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />, text: <strong>Real-world problem solving experience</strong> },
+      { icon: <img src={opportunityIcon} alt="Rocket" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />, text: <strong>Opportunity to build impactful projects</strong> },
+      { icon: <img src={collaborationIcon} alt="Handshake" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />, text: <strong>Collaboration with innovative minds</strong> },
+      { icon: <img src={industryIcon} alt="Briefcase" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />, text: <strong>Industry mentorship and networking</strong> },
+      { icon: <img src={handsOnIcon} alt="Laptop" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />, text: <strong>Hands-on development experience</strong> },
     ],
     speakers: [
-      { name: 'Arjun Mehta', initials: 'AM', role: 'Google Cloud Engineer' },
-      { name: 'Priya Sharma', initials: 'PS', role: 'Firebase Advocate, Google' },
-      { name: 'Vikram Rao', initials: 'VR', role: 'CTO, TechStartup Labs' },
+      { name: 'R.Vikranth', initials: '', role: 'Event Coordinator — ZYNEX 2026' },
+      { name: ' Subedi Deeksha', initials: '', role: 'Event Coordinator — ZYNEX 2026' },
     ],
-    agenda: [
-      { time: '9:00 AM', topic: 'Opening Ceremony & Theme Reveal', speaker: 'GDG Core Team' },
-      { time: '10:00 AM', topic: 'Team Formation & Ideation Sprint', speaker: null },
-      { time: '12:00 PM', topic: 'Hacking Begins — Sprint 1', speaker: null },
-      { time: '2:00 PM', topic: 'Mentor Check-in Round 1', speaker: 'All Mentors' },
-      { time: '6:00 PM', topic: 'Workshop: Cloud Deploy Crash Course', speaker: 'Arjun Mehta' },
-      { time: '9:00 PM', topic: 'Midnight Snack Break & Fun Games', speaker: null },
-      { time: '8:00 AM', topic: 'Day 2 — Final Sprint Begins', speaker: null },
-      { time: '2:00 PM', topic: 'Code Freeze & Submission', speaker: null },
-      { time: '3:00 PM', topic: 'Demo Presentations & Judging', speaker: 'Judges Panel' },
-      { time: '5:00 PM', topic: 'Awards Ceremony & Closing', speaker: 'GDG Core Team' },
+    sectionTitle: 'Event Details',
+    highlightsIntro: 'ZYNEX 2026 is designed for students who love building, experimenting, and solving problems that matter. Participants will work together in a fast-paced environment to design, develop, and present impactful solutions.',
+    highlights: [
+      { title: 'Round 1 — Online Ideation & PPT Submission', description: 'Submit Problem Statement, Innovative Solution Idea, PPT, Technical Approach, and Feasibility & Impact Overview. The best teams will be shortlisted for the finale.' },
+      { title: 'Round 2 — Offline Grand Finale', description: 'The top 25 shortlisted teams will compete in the offline finale at CIT Bengaluru. Build functional prototypes, develop working MVPs, and present final solutions.' },
+      { title: '💻 Software Tracks', description: 'Artificial Intelligence & Machine Learning, Web Development, Application Development, Cybersecurity, Blockchain, Operating Systems.' },
+      { title: '⚙️ Hardware Tracks', description: 'Embedded Systems, Robotics, IoT & Smart Automation, Electronics Innovation.' },
+      { title: '🏆 Prize Pool', description: '₹60,000+ Prize Pool. Exciting rewards, recognition, certificates, and opportunities await the top-performing teams.' },
     ],
+    agenda: [],
     prerequisites: [
-      'Basic programming in any language',
-      'Laptop with development environment',
-      'GitHub account',
-      'Team of 2-4 members (or register solo)',
+      'Open to undergraduate students across India',
+      'Teams must consist of students from the same institution',
+      'Interdisciplinary collaboration is encouraged',
     ],
-    technologies: ['Google Cloud', 'Firebase', 'Flutter', 'TensorFlow', 'React', 'Node.js', 'Python', 'Vertex AI'],
+    technologies: ['AI/ML', 'Web Dev', 'App Dev', 'Cybersecurity', 'Embedded Systems', 'IoT', 'Robotics'],
   },
   {
     id: 2,
