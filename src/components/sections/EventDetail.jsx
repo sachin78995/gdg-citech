@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import './EventDetail.css';
+import finalGuidelines from '../../assets/Zenyex/final_guidelines.pdf';
 
 export default function EventDetail({ event, onClose }) {
   if (!event) return null;
@@ -274,14 +275,29 @@ export default function EventDetail({ event, onClose }) {
             )}
             
             {!event.registrationLink && !event.stayConnected && (
-              <motion.button
-                className="event-detail__register-btn"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => window.open(event.resourceLink || 'https://docs.google.com/forms/d/e/1FAIpQLSenwPbBAl1uUqcDPmuOiUgRfgN-Mrr1qqAF78fO3pE7g54IZw/viewform?usp=dialog', '_blank')}
-              >
-                {event.status === 'upcoming' ? 'Register Now →' : 'View Resources →'}
-              </motion.button>
+              <>
+                <motion.button
+                  className="event-detail__register-btn"
+                  style={{ marginBottom: event.status === 'upcoming' ? '16px' : '0' }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => window.open(event.resourceLink || 'https://docs.google.com/forms/d/e/1FAIpQLSenwPbBAl1uUqcDPmuOiUgRfgN-Mrr1qqAF78fO3pE7g54IZw/viewform?usp=dialog', '_blank')}
+                >
+                  {event.status === 'upcoming' ? 'Register for Round-1' : 'View Resources →'}
+                </motion.button>
+                
+                {event.status === 'upcoming' && (
+                  <motion.button
+                    className="event-detail__register-btn"
+                    style={{ background: 'transparent', color: 'var(--text-primary)', border: '1px solid rgba(255,255,255,0.2)' }}
+                    whileHover={{ scale: 1.03, borderColor: 'var(--accent-blue)', background: 'rgba(66, 133, 244, 0.08)' }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => window.open(finalGuidelines, '_blank')}
+                  >
+                    View Resources →
+                  </motion.button>
+                )}
+              </>
             )}
           </aside>
         </div>
