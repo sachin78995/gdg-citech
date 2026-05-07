@@ -34,8 +34,8 @@ export const events = [
       { icon: <img src={handsOnIcon} alt="Laptop" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />, text: <strong>Hands-on development experience</strong> },
     ],
     speakers: [
-      { name: 'R.Vikranth', initials: '', role: 'Event Coordinator — ZYNEX 2026' },
-      { name: ' Subedi Deeksha', initials: '', role: 'Event Coordinator — ZYNEX 2026' },
+      { name: 'R.Vikranth', initials: '', role: 'Coordinator — 7305431541' },
+      { name: ' Subedi Deeksha', initials: '', role: 'Coordinator — 7892795028' },
     ],
     sectionTitle: 'Event Details',
     highlightsIntro: 'ZYNEX 2026 is designed for students who love building, experimenting, and solving problems that matter. Participants will work together in a fast-paced environment to design, develop, and present impactful solutions.',
