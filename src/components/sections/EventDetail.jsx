@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import './EventDetail.css';
-import finalGuidelines from '../../assets/Zenyex/final_guidelines.pdf';
 
 export default function EventDetail({ event, onClose }) {
   if (!event) return null;
@@ -200,34 +199,6 @@ export default function EventDetail({ event, onClose }) {
 
           {/* Right Sidebar */}
           <aside className="event-detail__sidebar">
-            {/* Speakers */}
-            <div className="event-detail__sidebar-card">
-              <h3 className="event-detail__sidebar-title"> Leads</h3>
-              <div className="event-detail__speakers">
-                {event.speakers.map((speaker, i) => (
-                  <motion.div
-                    key={i}
-                    className="event-detail__speaker"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 + i * 0.1 }}
-                  >
-                    {/* <div className="event-detail__speaker-avatar">
-                      {speaker.image ? (
-                        <img src={speaker.image} alt={speaker.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
-                      ) : (
-                        <span>{speaker.initials}</span>
-                      )}
-                    </div> */}
-                    <div className="event-detail__speaker-info">
-                      <h4>{speaker.name}</h4>
-                      <p>{speaker.role}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
             {/* Prerequisites */}
             <div className="event-detail__sidebar-card">
               <h3 className="event-detail__sidebar-title">Prerequisites</h3>
@@ -292,7 +263,7 @@ export default function EventDetail({ event, onClose }) {
                     style={{ background: 'transparent', color: 'var(--text-primary)', border: '1px solid rgba(255,255,255,0.2)' }}
                     whileHover={{ scale: 1.03, borderColor: 'var(--accent-blue)', background: 'rgba(66, 133, 244, 0.08)' }}
                     whileTap={{ scale: 0.97 }}
-                    onClick={() => window.open(finalGuidelines, '_blank')}
+                    onClick={() => window.open('https://drive.google.com/drive/folders/1WBWWdHkNzqqe6vO9ZtNSW6Hl2cMS_Pcl', '_blank')}
                   >
                     View Resources →
                   </motion.button>
