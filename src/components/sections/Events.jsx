@@ -260,7 +260,7 @@ export const events = [
   },
   {
     id: 6,
-    title: 'GDG x Ad Astra Collaborative Workshop on Embedded Systems',
+    title: 'GDG Workshop on Embedded Systems',
     type: 'Workshop',
     date: 'December 27, 2025',
     time: '10:00 AM — 4:00 PM',
@@ -268,7 +268,7 @@ export const events = [
     capacity: '80+ Participants',
     description: 'An immersive, hands-on workshop on Robotics and Embedded Systems — Shaping the Future of Automation and Intelligence.',
     fullDescription:
-      'The GDG x Ad Astra Collaborative Workshop on Robotics and Embedded Systems was an immersive, hands-on learning experience designed to introduce participants to the fundamentals of embedded technology and its real-world applications. Organized jointly by GDGOC and Ad Astra, the session blended strong theoretical foundations with practical demonstrations — from circuit design principles to building and programming robotic cars.\n\nParticipants explored embedded system architecture, real-life use cases, hardware–software integration, and system design principles. Attendees got hands-on experience building Arduino-based robotic vehicles, understanding sensor integration, and working with circuit design tools. The workshop created a dynamic, collaborative learning environment that encouraged curiosity, experimentation, and innovation.',
+      'The GDG Workshop on Robotics and Embedded Systems was an immersive, hands-on learning experience designed to introduce participants to the fundamentals of embedded technology and its real-world applications. Organized jointly by GDGOC and Ad Astra, the session blended strong theoretical foundations with practical demonstrations — from circuit design principles to building and programming robotic cars.\n\nParticipants explored embedded system architecture, real-life use cases, hardware–software integration, and system design principles. Attendees got hands-on experience building Arduino-based robotic vehicles, understanding sensor integration, and working with circuit design tools. The workshop created a dynamic, collaborative learning environment that encouraged curiosity, experimentation, and innovation.',
     tagline: 'Build Intelligent Systems. Power Real-World Innovation.',
     icon: '🔌',
     status: 'past',
