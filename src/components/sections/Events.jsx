@@ -44,7 +44,7 @@ icon: '⚡',
     sectionTitle: 'Event Details',
     highlightsIntro: 'ZYNEX 2026 is designed for students who love building, experimenting, and solving problems that matter. Participants will work together in a fast-paced environment to design, develop, and present impactful solutions.',
     highlights: [
-      { title: 'Round 1 — Best Deployed Project', description: 'Instead of starting from scratch, submit your best built and deployed project! Requirements: GitHub repo, deployed link, setup steps (Windows OS), and proper README/PPT. Open Innovation Format—any domain, idea, or tech stack. Deadline extended to 12th of May 2026.' },
+      { title: 'Round 1 — Best Deployed Project', description: 'Instead of starting from scratch, submit your best built and deployed project! Requirements: GitHub repo, deployed link, setup steps (Windows OS), and proper README/PPT. Open Innovation Format—any domain, idea, or tech stack. Deadline extended to 15th of May 2026.' },
       { title: 'Round 2 — Offline Grand Finale', description: 'The best projects will be shortlisted for Round 2 commencing on 22nd May 2026 at CIT Bengaluru. Shortlisted teams will receive the official Round 2 problem statements 5 days before the hackathon.' },
       { title: '💻 Software Tracks', description: 'Artificial Intelligence & Machine Learning, Web Development, Application Development, Cybersecurity, Blockchain, Operating Systems.' },
       { title: '⚙️ Hardware Tracks', description: 'Embedded Systems, Robotics, IoT & Smart Automation, Electronics Innovation.' },
