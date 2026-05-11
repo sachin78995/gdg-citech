@@ -17,12 +17,16 @@ export const events = [
     date: 'May 22-23, 2026',
     time: '24–30 Hour Offline Finale',
     venue: 'Cambridge Institute of Technology',
-    capacity: 'Top 25 shortlisted teams for the finale',
-    description: 'A flagship hackathon to solve real-world challenges through technology.',
-    fullDescription:
-      'ZYNEX 2026 is a flagship hackathon organized by the GDG on Campus - Cambridge Institute of Technology, created to bring together passionate student innovators from across India to solve real-world challenges through technology.\n\nFocused on both software and hardware innovation, the hackathon provides a platform for participants to transform ideas into practical solutions through collaboration, creativity, and rapid development.\n\nThe event follows a hybrid format beginning with an online ideation round and concluding with an offline grand finale at Cambridge Institute of Technology. Teams will move from idea validation to prototype building and finally to developing a working Minimum Viable Product (MVP).',
-    tagline: 'Velocity with Vision',
-    icon: '⚡',
+    capacity: 'Top 50 shortlisted teams for the Finale. Out of these, the top 25 teams from each track have been selected to advance to the final round.',
+
+description: 'A flagship hackathon focused on solving real-world challenges through technology.',
+
+fullDescription:
+  'ZYNEX 2026 is a flagship hackathon organized by the GDG on Campus - Cambridge Institute of Technology, bringing together passionate student innovators from across India to solve real-world challenges through technology.\n\nFocused on both software and hardware innovation, the hackathon provides a platform for participants to transform ideas into practical solutions through collaboration, creativity, and rapid development.\n\nThe event follows a hybrid format, beginning with an online ideation round and concluding with an offline grand finale at Cambridge Institute of Technology. Teams will progress from idea validation to prototype development and finally to building a functional Minimum Viable Product (MVP).',
+
+tagline: 'Velocity with Vision',
+
+icon: '⚡',
     status: 'upcoming',
     color: '#ea4335',
     whatYouLearn: [
